@@ -125,7 +125,7 @@ Based on my analysis, this is how I am naming the clusters:
 
 To visualize the clustering results, I plotted dots for each neighborhood on a map of the city with different colors representing different clusters.
 
-Below are snapshots of the map. View the interactive map [here](https://l.messenger.com/l.php?u=https%3A%2F%2Fnbviewer.jupyter.org%2Fgithub%2Fjasmineshi%2FCoursera_Capstone%2Fblob%2Fmain%2FClustering%2520Neighborhoods%2520by%2520crime%2520only.ipynb&h=AT3bm--0yWKQtiU46SxOxqy_iF6kPuNxmGaMq5q45bra2o5z-Gx7yK1CdmsbCEUtu0MnjymmnLk2FRd1Uym7dpw8KPUSgYrYxAhDSPkLzoHH3P5vHUwVO6oog6MU_oicua9Nlg) (where you can click on the dots to see neighborhood name and cluster label).
+Below are snapshots of the map. View the interactive map [here](https://nbviewer.jupyter.org/github/jasmineshi/Neighborhoods_crime/blob/main/4-visualizing_clusters_on_map.ipynb) (where you can click on the dots to see neighborhood name and cluster label).
 
 Some observations from the map results:
 
