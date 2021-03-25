@@ -23,9 +23,9 @@ I retrieved the data for the year 2019 because I expect crime in 2020 will diffe
 There are slight differences in how the data is presented between each police force. For example for VPD and not the others, homicide and attempted murders were excluded in the crime by neighborhood dataset, presumably to not cause distress in the public by knowing where homicide occurred. I am only including features that are shared by all three datasets. These are: Sex Offences, Assaults, Robbery, Break & Enter, Auto Theft, Other Theft, and Offensive Weapons.
 
 In addition, I want to use crime occurrence _rate_ rather than the occurrence _number_. I converted the values as follows:<br>
-$$
-\text{crime rate} = \frac{\text{Number of occurrences for a crime type in a neighborhood}}{\text{All occurrences for that crime type in the municipality}}
-$$
+
+![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Ctext%7Bcrime%20rate%7D%20%3D%20%5Cfrac%7B%5Ctext%7BNumber%20of%20occurrences%20for%20a%20crime%20type%20in%20a%20neighborhood%7D%7D%7B%5Ctext%7BAll%20occurrences%20for%20that%20crime%20type%20in%20the%20municipality%7D%7D)
+
 Note that the crime rate is calculated relative to crimes in the city the neighborhood is in rather than in all three cities. For example, a neighborhood in Vancouver with a value of 0.1 for "Sex Offences" means 10% of sex offences in Vancouver occurred there.
 
 The head of the final dataset looks as such:<br>
