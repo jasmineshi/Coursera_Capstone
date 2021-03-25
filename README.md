@@ -22,7 +22,7 @@ I retrieved the data for the year 2019 because I expect crime in 2020 will diffe
 #### Preparation
 There are slight differences in how the data is presented between each police force. For example for VPD and not the others, homicide and attempted murders were excluded in the crime by neighborhood dataset, presumably to not cause distress in the public by knowing where homicide occurred. I am only including features that are shared by all three datasets. These are: Sex Offences, Assaults, Robbery, Break & Enter, Auto Theft, Other Theft, and Offensive Weapons.
 
-In addition, I want to use crime occurrence _rate_ rather than the occurrence _number_. I converted the values as follows:<br>
+To standardize the values, I am using crime occurrence _rate_ rather than the occurrence _number_. I converted the values as follows:<br>
 
 ![equation](https://latex.codecogs.com/png.latex?%5Cdpi%7B150%7D%20%5Ctext%7Bcrime%20rate%7D%20%3D%20%5Cfrac%7B%5Ctext%7BNumber%20of%20occurrences%20for%20a%20crime%20type%20in%20a%20neighborhood%7D%7D%7B%5Ctext%7BAll%20occurrences%20for%20that%20crime%20type%20in%20the%20municipality%7D%7D)
 
@@ -43,17 +43,17 @@ The exception would be the "Auto Theft" crime type (mostly purple blocks). It se
 ![](./images/heatmap.png)
 
 #### Box plot
-The boxplot shows the distribution of values for different crime types. We can see that for all crime type, most neighborhoods contribute less than 10% to a city's total. However there are outlier neighborhoods who contribute up to 50%.
+The boxplot shows the distribution of values for different crime types. We can see that for all crime types, most neighborhoods contribute less than 10% to a city's total. However there are outlier neighborhoods who contribute up to 50%.
 
 ![](./images/boxplot.png)
 
 ## Modeling
 #### Model
-I chose to use agglomerative clustering which is an unsupervised hierarchical clustering technique.
+I chose to use an agglomerative clustering model, which is an unsupervised hierarchical clustering technique.
 
 In this machine learning technique, every data point starts off as an individual cluster. The distance between each cluster is computed. Based on this, the clusters closest together are combined into a new cluster. The distance is computed again between the new set of clusters. And the process repeats until all data points are in one big cluster.
 
-I chose this model because it is simple and the clustering process can be visualized via a dendrogram for better understanding.
+I chose this model because it is simple and the clustering process can be visualized via a dendrogram for deeper understanding.
 
 ![](./images/dendrogram.png)
 
@@ -69,17 +69,17 @@ Features of the graph:
 
 We can see that as the distance increases, clusters are joined together into bigger clusters until the very top where all points are under one big cluster.
 
-For my model, I set distance threshold to 0.2 and resulted in 7 clusters. One way to visualize this is to follow the gridline at distance=0.2 and observe that there are 7 vertical lines in the graph intersecting with it.
+For my model, I set distance threshold to 0.2 and resulted in 7 clusters. One way to visualize this is to follow the gridline at distance=0.2 and observe that there are 7 vertical lines in the graph intersecting with it. The nodes/data points underneath each of those lines belong to a cluster together.
 
 ## Cluster analysis
 #### Outlier analysis
-By outlier, I mean the neighborhoods that are not clustered to any other neighborhood i.e. the "lone" neighborhoods that consist a cluster by itself.
+By outlier, I mean the neighborhoods that are not clustered to any other neighborhoods i.e. the "lone" neighborhoods that consist a cluster by itself.
 
-The table below shows the number of neighborhoods in each cluster. We can see that cluster 3 and 4 are outliers.
+The table below shows the count of neighborhoods belonging to each cluster. We can see that clusters 3 and 4 are outliers.
 
 ![](./images/cluster_count.png)
 
-After identifying the outliers let's find out what makes them special. The table below shows the means for the different crime types in each cluster.
+After identifying the outliers, let's find out what makes them special. The table below shows the means for the different crime types in each cluster.
 
 First off, I noticed for a given cluster the crime rate is similar across each category. For example, average crime rates for cluster 0 reside in a close range of 8% to 15% while for cluster 1 it ranges 4% to 7%. This agrees with our observation from the heat map that the crime rates generally correlate with each other. This could also be why the clusters are divided the way they are. We will get to that later.
 
@@ -148,7 +148,7 @@ I used agglomerative clustering technique to group the neighborhoods based on cr
 
 A shortcoming of this project is that Toronto police data was presented differently from that of Vancouver's and Montreal's, which might have affected the results. For VPD and SPVM, the data were divided by neighborhoods. But for TPS, it was actually divided by districts, in which each one includes 3 or 4 neighborhoods. Districts are much bigger than neighborhoods, thus it was not completely accurate to compare it with the neighborhoods in the other cities. Bigger area means that the extreme crime scenes in some neighborhoods may have been balanced out by the more typical crime scenes of their neighbors. This can explain why the Toronto clustering results appear more even and less variable than the others.
 
-Nonetheless, I think this was a fairly successful project and good use of the police data. I learned that different crimes tend to correlate with each other and occur together. I hope that the result maps will help people living in the cities or those thinking about moving into the cities to have a better idea of which areas are the safe and unsafe.
+Nonetheless, I think this was a fairly successful project and good use of the police data. I learned that different crimes tend to correlate with each other and occur together. I hope that the result maps will help people living in the cities or those thinking about moving into the cities to have a better idea of which areas are safe and unsafe.
 
 
 ## References
